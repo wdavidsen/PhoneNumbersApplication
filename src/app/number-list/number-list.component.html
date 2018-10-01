@@ -1,0 +1,26 @@
+<section class="number-list">
+
+  <button type="button" class="btn btn-primary" (click)="showFirstPage()" *ngIf="referenceId && !results">
+    Show results now
+  </button>
+
+  <section class="number-list" *ngIf="results">
+    <ngb-pagination [collectionSize]="pageCount" [(page)]="pageNumber" [boundaryLinks]="true" [maxSize]="15" [rotate]="false"
+      (pageChange)="changePage()"></ngb-pagination> <span>{{results.totalCount}} total combinations</span>
+
+    <table class="table" *ngIf="results">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Combination</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let num of results.numberVariants; let i=index">
+          <th scope="row">{{ (i + 1) + ((pageNumber - 1) * pageSize) }}</th>
+          <td>{{num}}</td>
+        </tr>
+      </tbody>
+    </table>
+</section>
+</section>

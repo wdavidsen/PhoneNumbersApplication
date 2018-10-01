@@ -1,0 +1,10 @@
+<h1 class="display-4">Number Combinations</h1>
+
+<div class="row">
+    <div class="col">
+        <app-number-submit (viewNumbers)="viewNumbers($event)"></app-number-submit>
+    </div>
+    <div class="col">
+        <app-number-list [referenceId]="referenceId" *ngIf="referenceId"></app-number-list>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<section class="number-submit">
+  <form  [formGroup]="numberForm" (ngSubmit)="submit(numberForm.value)" autocomplete="on" novalidate>
+    <div class="form-group" [ngClass]="{'error': !validatePhoneNumber() }">
+      <label for="phoneNumber">Phone number</label>       
+      <input type="text" formControlName="phoneNumber" class="form-control" id="phoneNumber" aria-describedby="phoneNumberHelp" placeholder="Enter phone number">
+      <small id="phoneNumberHelp" class="form-text text-muted">Enter your phone number and submit</small>
+      <em *ngIf="!validatePhoneNumber() && numberForm.controls.phoneNumber.errors.required">Required</em>
+      <em *ngIf="!validatePhoneNumber() && numberForm.controls.phoneNumber.errors.pattern">Invalid phone number</em>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="numberForm.controls.phoneNumber.invalid" >Submit</button>
+  </form>
+
+  <section class="messages">
+    <div class="alert alert-success" role="alert" *ngIf="!errorMessage && referenceNumber?.number && !generateStatus">
+      <h4 class="alert-heading">Submission has been accepted!</h4>
+      <p>Your submission has been submitted successfully and is being processed. Your reference id is: <b>{{referenceNumber?.number}}</b></p>
+      <hr>
+      <p class="mb-0">
+        <button type="button" class="btn btn-primary" (click)="getStatus()">Check status now</button></p>
+    </div>
+
+    <div class="alert alert-success" role="alert" *ngIf="!errorMessage && generateStatus?.ready">
+      <h4 class="alert-heading">Your numbers are ready!</h4>
+      <p>Your submission <b>{{referenceNumber?.number}}</b> has been processed and is ready for viewing.</p>    
+    </div>
+
+    <div class="alert alert-info" role="alert" *ngIf="!errorMessage && generateStatus && !generateStatus?.ready">
+      Your submission has not been processed yet.
+    </div>
+
+    <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+      {{errorMessage}}
+    </div>
+  </section>
+</section>
