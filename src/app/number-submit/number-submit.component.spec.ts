@@ -1,5 +1,5 @@
 import { NumberSubmitComponent } from './number-submit.component';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 import { IPhoneNumber, IReferenceNumber, IGenerateStatus } from '../model/generate.model';
 
 describe('NumberSubmitComponent', () => {

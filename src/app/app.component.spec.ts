@@ -1,6 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { RouterOutlet, RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { ROUTES } from './app.routes';
 import { HomeComponent } from './home/home.component';
@@ -8,8 +7,9 @@ import { PhoneNumbersComponent } from './numbers/phone-numbers.component';
 import { NumberListComponent } from './number-list/number-list.component';
 import { NumberSubmitComponent } from './number-submit/number-submit.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { APP_BASE_HREF } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {

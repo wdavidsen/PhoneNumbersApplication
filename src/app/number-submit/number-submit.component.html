@@ -11,7 +11,7 @@
   </form>
 
   <section class="messages">
-    <div class="alert alert-success" role="alert" *ngIf="!errorMessage && referenceNumber?.number && !generateStatus">
+    <div submitted-status class="alert alert-success" role="alert" *ngIf="!errorMessage && referenceNumber?.number && !generateStatus">
       <h4 class="alert-heading">Submission has been accepted!</h4>
       <p>Your submission has been submitted successfully and is being processed. Your reference id is: <b>{{referenceNumber?.number}}</b></p>
       <hr>
